@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K9slAQgDIPK+F487b6hzERyPpxsVB6DVz77eJL7X7si7SOuWdC8VtsglK5z40GZ0QNAtSzBsoCsTqklEaadlJQ==",
+  "dgSpecHash": "0UlpL690drFWoCr0vFmu919Ds7ryn29/gkLnEgtK05KUqKFfzw5mGs1rLNRmzeIpRM9ldkrq8aV0CjFUOb7VNA==",
   "success": true,
   "projectFilePath": "C:\\Users\\brett_pdltu26\\Desktop\\Fontys\\SEMESTER_3\\GamesServiceAPI\\GamesService\\GamesService.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\brett_pdltu26\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
