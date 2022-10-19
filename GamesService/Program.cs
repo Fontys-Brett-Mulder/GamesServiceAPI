@@ -1,4 +1,6 @@
-using GamesService.DataContext;
+using GamesService.Data;
+using GamesService.Data.Repository;
+using GamesService.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +12,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -23,6 +22,13 @@ builder.Services.AddCors(options =>
                                 .AllowAnyMethod();
         });
 });
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddScoped<IGamesRepository, GamesRepository>();
+builder.Services.AddScoped<IGamesService, GamesService.Services.GamesService>();
 
 var app = builder.Build();
 

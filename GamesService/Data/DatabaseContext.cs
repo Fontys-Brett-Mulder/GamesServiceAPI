@@ -1,7 +1,7 @@
 ﻿using GamesService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GamesService.DataContext
+namespace GamesService.Data
 {
     public class ApplicationDbContext : DbContext
     {
