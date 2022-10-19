@@ -1,8 +1,6 @@
-﻿using GamesService.DataContext;
-using GamesService.Models;
-using Microsoft.AspNetCore.Http;
+﻿using GamesService.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using GamesService.Services.Interfaces;
 
 namespace GamesService.Controllers
 {
@@ -10,45 +8,35 @@ namespace GamesService.Controllers
     [ApiController]
     public class GamesController : Controller
     {
-        private ApplicationDbContext _db;
 
-        public GamesController(ApplicationDbContext db)
+        private readonly IGamesService _service;
+
+        public GamesController(IGamesService service)
         {
-            _db = db;
+            _service = service;
         }
-
 
         // Get all articles
         [HttpGet("getAllGames")]
         public async Task<ActionResult<IEnumerable<GameModel>>> GetAllArticles()
         {
-
-            List<GameModel> allGames = await _db.Games.ToListAsync();
-
-            return allGames;
+            return await _service.GetAllGames();
         }
 
-        /**
-         * Get a game with specific Id
-         */
-        [HttpGet("getSpecificgame/{id}")]
-        public async Task<ActionResult<GameModel>> GetSpecificgame(Guid id)
+        
+        [HttpGet("getSpecificGame/{gameId}")]
+        public async Task<ActionResult<GameModel>> GetSpecificGame(Guid gameId)
         {
-            var game = await _db.Games.FirstOrDefaultAsync(x => x.Id == id);
-
-            return game;
+            return await _service.GetSpecificGame(gameId);
         }
 
         /*
          * Add new Game
          */
         [HttpPost("addGame")]
-        public async Task<ActionResult<GameModel>> AddArticle(GameModel game)
+        public async Task<ActionResult<GameModel>> AddGame(GameModel newGame)
         {
-            _db.Add(game);
-            await _db.SaveChangesAsync();
-
-            return CreatedAtAction("GetAllArticles", new { id = game.Id }, game);
+            return await _service.AddGame(newGame);
         }
     }
 }
