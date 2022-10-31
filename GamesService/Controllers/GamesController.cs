@@ -38,5 +38,14 @@ namespace GamesService.Controllers
         {
             return await _service.AddGame(newGame);
         }
+
+        /**
+         * Delete a game by Guid
+         */
+        [HttpDelete("deleteGame")]
+        public async Task<ActionResult<GameModel>> DeleteGame(Guid gameId)
+        {
+            return await _service.DeleteGame(gameId);
+        }
     }
 }

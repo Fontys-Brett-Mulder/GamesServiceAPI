@@ -28,6 +28,13 @@ public class GamesRepository : IGamesRepository
         _db.Add(newGame);
         await _db.SaveChangesAsync();
 
-        return newGame;
+        return new ActionResult<GameModel>(new OkResult());
+    }
+
+    public async Task<ActionResult<GameModel>> DeleteGame(Guid gameId)
+    {
+        _db.Games.Remove(new GameModel() {Id = gameId});
+        await _db.SaveChangesAsync();
+        return new ActionResult<GameModel>(new OkResult());
     }
 }

@@ -29,4 +29,9 @@ public class GamesService : IGamesService
     {
         return await _repository.AddGame(newGame);
     }
+
+    public async Task<ActionResult<GameModel>> DeleteGame(Guid gameId)
+    {
+        return await _repository.DeleteGame(gameId);
+    }
 }
