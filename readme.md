@@ -1,3 +1,11 @@
+# Games Service API
+This git repo is for managing the games for CardGames
+
+# Dependencies
+- [SessionService](https://github.com/Fontys-Brett-Mulder/SessionServiceAPI)
+- [CardGames Frontend](https://github.com/Fontys-Brett-Mulder/CardGamesFrontend)
+- [Documentation](https://github.com/Fontys-Brett-Mulder/CardGames)
+
 # Setup for new ASP Net Core API
 
 1. Create new `ASP Net Core Web API` add solution in same folder
