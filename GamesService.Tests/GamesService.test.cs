@@ -97,5 +97,23 @@ namespace GamesService.Tests
             
             Assert.Equal(orderedList, games);
         }
+
+        [Theory]
+        [InlineData("7ea98e9a-7364-4b7a-af16-8a8b478ca58a")]
+        public async void CheckIfHasSpecificFields(Guid guid)
+        {
+            // Creating a mock for the GetSpecificGame function
+            _repository.Setup(m => m.GetSpecificGame(It.IsAny<Guid>()))
+                .ReturnsAsync((Guid id) => _games.FirstOrDefault(g => g.Id == guid));
+            
+            var service = new Services.GamesService(_repository.Object);
+            
+            var game = await service.GetSpecificGame(guid);
+            
+            Assert.IsType<string>(game.Difficulty);
+            Assert.IsType<int>(game.MaxPlayers);
+            Assert.IsType<int>(game.MinPlayers);
+            Assert.IsType<string>(game.Name);
+        }
     }
 }
